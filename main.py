@@ -5,8 +5,8 @@ def is_valid(board, row, col, num):
             return False
 
     # Check 3x3 subgrid
-    start_row= 3 * (row // 3)
-    start_col = 3 * (col // 3)
+    start_row= row // 3
+    start_col = col // 3
     for i in range(start_row, start_row + 3):
         for j in range(start_col, start_col + 3):
             if board[i][j] == num:
@@ -31,15 +31,15 @@ def solve_sudoku(board):
 
 # Example Sudoku board (0 represents empty cells)
 sudoku_board = [
-    [7, 8, 0, 4, 0, 0, 1, 2, 0],
+   [7, 8, 0, 4, 0, 0, 1, 2, 0],
     [6, 0, 0, 0, 7, 5, 0, 0, 9],
-    [0, 0, 0, 6, 0, 1, 0, 7, 8],
+    [6, 0, 0, 6, 0, 1, 0, 7, 8],
     [0, 0, 7, 0, 4, 0, 2, 6, 0],
-    [0, 0, 1, 0, 0, 0, 9, 3, 0],
+    [0, 0, 1, 0, 5, 0, 9, 3, 0],
     [9, 0, 4, 0, 6, 0, 0, 0, 5],
     [0, 7, 0, 3, 0, 0, 0, 1, 2],
     [1, 2, 0, 0, 0, 7, 4, 0, 0],
-    [0, 4, 9, 0, 0, 6, 0, 0, 7]
+    [0, 4, 9, 2, 0, 6, 0, 0, 7]
 ]
 
 # Solve the Sudoku
