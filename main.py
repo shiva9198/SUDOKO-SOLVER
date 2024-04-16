@@ -1,3 +1,11 @@
+def check_value(matrix, value):
+    for i in range(9):
+        if value in matrix[i]:
+            for j in range(9):
+                if matrix[j][i] == value:
+                    return True
+    return True
+
 def is_valid(board, row, col, num):
     # Check row and column
     for i in range(9):
@@ -11,6 +19,8 @@ def is_valid(board, row, col, num):
         for j in range(start_col, start_col + 3):
             if board[i][j] == num:
                 return False
+            else:
+                return check_value(board,board[i][j])
 
     return True
 
