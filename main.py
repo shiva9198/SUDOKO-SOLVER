@@ -1,11 +1,3 @@
-def check_value(matrix, value):
-    for i in range(9):
-        if value in matrix[i]:
-            for j in range(9):
-                if matrix[j][i] == value:
-                    return True
-    return True
-
 def is_valid(board, row, col, num):
     # Check row and column
     for i in range(9):
@@ -19,8 +11,6 @@ def is_valid(board, row, col, num):
         for j in range(start_col, start_col + 3):
             if board[i][j] == num:
                 return False
-            else:
-                return check_value(board,board[i][j])
 
     return True
 
@@ -41,7 +31,7 @@ def solve_sudoku(board):
 
 # Example Sudoku board (0 represents empty cells)
 sudoku_board = [
-   [3, 0, 6, 5, 0, 8, 4, 0, 0],
+        [3, 0, 6, 5, 0, 8, 4, 0, 0],
 		[5, 2, 0, 0, 0, 0, 0, 0, 0],
 		[0, 8, 7, 0, 0, 0, 0, 3, 1],
 		[0, 0, 3, 0, 1, 0, 0, 8, 0],
@@ -55,9 +45,29 @@ sudoku_board = [
 # Solve the Sudoku
 if solve_sudoku(sudoku_board):
     print("Sudoku solution:")
-    for row in sudoku_board:
-        print(row)
+    for i in range(len(sudoku_board)):
+        if i % 3 == 0 and i != 0:
+            print("- - - - - - - - - - - - - ")
+
+        for j in range(len(sudoku_board[0])):
+            if j % 3 == 0 and j != 0:
+                print(" | ", end="")
+
+            if j == 8:
+                print(sudoku_board[i][j])
+            else:
+                print(str(sudoku_board[i][j]) + " ", end="")
 else:
    print('no solution exist')
-   for row in sudoku_board:
-    print(row)
+   for i in range(len(sudoku_board)):
+        if i % 3 == 0 and i != 0:
+            print("- - - - - - - - - - - - - ")
+
+        for j in range(len(sudoku_board[0])):
+            if j % 3 == 0 and j != 0:
+                print(" | ", end="")
+
+            if j == 8:
+                print(sudoku_board[i][j])
+            else:
+                print(str(sudoku_board[i][j]) + " ", end="")
